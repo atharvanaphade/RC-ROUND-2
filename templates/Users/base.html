@@ -1,0 +1,134 @@
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap CSS -->
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+            crossorigin="anonymous"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'Users/css/coding.css'%}"/>
+    <link rel="stylesheet" href="{% static 'Users/css/codingMediaQueries.css'%}"/>
+    <!-- Code Mirror CSS -->
+    <link
+            rel="stylesheet"
+            href="{% static 'Users/js/codemirror-5.57.0/lib/codemirror.css'%}"
+    />
+</head>
+<body>
+<!-- NAVBAR -->
+<nav
+        id="main-nav"
+        class="navbar navbar-dark navbar-expand-xl z-index"
+        style="height: 10vh"
+>
+    <div class="container-fluid">
+        <!-- LOGO and title -->
+        <a href="#" class="navbar-brand ml-1">
+            <img
+                    src="{% static 'Users/imgs/RC_logo.jpeg'%}"
+                    alt="RC LOGO"
+                    class="rclogo"
+            />
+            <svg
+                    width="30px"
+                    height="30px"
+                    viewBox="0 0 16 16"
+                    class="bi bi-code-square"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                        fill-rule="evenodd"
+                        d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0
+          0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2
+          0 0 0-2-2H2z"
+                />
+                <path
+                        fill-rule="evenodd"
+                        d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0
+          1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292
+          0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0
+          .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"
+                />
+            </svg>
+            <h4 class="d-inline align-middle">Coding Page</h4>
+        </a>
+        <!-- TIMER -->
+        <div class="timer">
+            <!-- <a href="#" class="btn btn-light d-inline-block ml-6">TIMER</a> -->
+            <div class="ml-6 d-inline-block" style="color: #ffffff">
+                Timer
+            </div>
+        </div>
+        <!-- TOGGLER-->
+        <button
+                class="navbar-toggler mr-1"
+                data-toggle="collapse"
+                data-target="#navbarCollapse"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- LINKS -->
+        <div
+                id="navbarCollapse"
+                class="collapse navbar-collapse mt-2"
+                style="background-color: #010c16; z-index: 100000"
+        >
+            <ul class="navbar-nav ml-auto mr-4">
+                <li class="nav-item">
+                    <a href="{% url 'question-hub' %}" class="nav-link">Question Hub</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'submissions-page' %}" class="nav-link">Submissions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <img
+                src="{% static 'Users/imgs/pisb.jpg'%}"
+                class="pisb-logo"
+                alt="PISB logo"
+                height="50px"
+                width="150px"
+        />
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+<footer class="text-center">
+    <div class="conatiner-fluid">
+        <div class="footer-text pt-3 pb-4">PISB <span>&copy</span></div>
+    </div>
+</footer>
+<!-- Optional JavaScript -->
+<!-- CODE MIRROR -->
+<script src="{% static 'Users/js/codemirror-5.57.0/lib/codemirror.js'%}"></script>
+<script src="{% static 'Users/js/codemirror-5.57.0/mode/javascript/javascript.js'%}"></script>
+<!-- Popper.js first, then Bootstrap JS -->
+<script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"
+></script>
+<script src="{% static 'Users/js/codemirror-5.57.0/theme/base16-dark.css'%}"></script>
+<script src="{% static 'Users/js/codemirror-5.57.0/mode/clike/clike.js'%}"></script>
+<script src="{% static 'Users/js/codemirror-5.57.0/mode/python/python.js'%}"></script>
+<script src="{% static 'Users/js/codemirror-5.57.0/addon/edit/closebrackets.js'%}"></script>
+<script src="{% static 'Users/js/app.js'%}"></script>
+
+</body>
+</html>

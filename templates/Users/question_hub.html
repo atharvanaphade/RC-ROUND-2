@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'Users/css/QueHub.css' %}">
+        <link rel="stylesheet" href="{% static 'Users/css/css-circular-prog-bar.css' %}">
+    </head>
+
+    <body style="background-color: #002244">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #010c16;">
+        <a class="navbar-brand" href="{% url 'question-hub' %}">
+            <img src="{% static 'Users/imgs/rc.jpeg' %}" width="75" height="55" class="d-inline-block align-top" alt="RC logo">
+        </a>
+    
+        <a class="navbar-brand " style="font-size: 23px; color: white;" >Question Hub</a>
+        <div class="Time mt-1 timer" style=" margin-left : 30%; color: white; font-size: 18px;">
+            <!-- <a href="#" class="btn btn-light d-inline-block ml-6">TIMER</a> -->
+            <div
+                class="ml-6"
+                id="timer"
+                style="color: #ffffff; width: 15vh"
+            >
+            </div>
+        </div>
+<!--        <a class="Time mt-1 timer" style=" margin-left : 30%; color: white; font-size: 18px;" >Timer - 00:00</a>-->
+    </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+          <ul class="navbar-nav ml-auto" >
+            <li class="nav-item mt-1 ">
+              <a class="nav-link" href="{% url 'submissions-page' %}">Submission Page</a>
+            </li>
+            <li class="nav-item mt-1 ">
+                <a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
+            </li>
+            <li class="nav-item mt-1">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li> 
+            <li class="nav-item ">
+                <img src="{% static 'Users/imgs/pisb.jpg' %}" width="150" height="50"  alt="PISB logo">
+            </li>  
+            
+          </ul>
+        </div>
+      </nav>    
+<div class="row mx-auto text-center align-items-center">
+
+    {% for question, accuracy in group %}
+        <div class="col-md-4" style="padding: 0px 7vw;"> 
+            <div class="wrapper container">
+                <div class="card mx-auto" >
+                        <div class="card-header">Question {{ question.id }}</div>
+                            <div class="card-body py-2">
+                                <p>Submissions:</p>
+
+                                {% if accuracy < 50 %}
+
+                                    <div class="progress-circle p{{ accuracy|floatformat:'0' }} mx-auto">
+                                    <span id="accuracy_{{ forloop.counter }}">{{ accuracy }}%</span>
+                                    <div class="left-half-clipper">
+                                        <div class="first50-bar"></div>
+                                        <div class="value-bar"></div>
+                                    </div>
+                                    </div>
+                                {% else %}
+
+                                    <div class="progress-circle p{{ accuracy|floatformat:'0' }} over50 mx-auto">
+                                    <span id="accuracy_{{ forloop.counter }}">{{ accuracy }}%</span>
+                                    <div class="left-half-clipper">
+                                        <div class="first50-bar"></div>
+                                        <div class="value-bar"></div>
+                                    </div>
+                                    </div>
+
+                                {% endif %}
+
+                                    <a href="{% url 'coding-page' question.id %}">
+                                        <button type="button" class="btn" >Attempt</button> 
+                                    </a>
+                            </div>       
+                </div> 
+            </div>
+        </div>
+    {% endfor %}
+
+
+</div>
+        <div id="adjust" style="padding: 1%;"></div>
+          <footer class="text-center fixed-bottom">
+            <div class="container-fluid" height="40px">
+                <div class="footer-text py-3">PISB <span>&copy</span></div>
+            </div>
+        </footer>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let accuracy= parseInt(document.querySelector('.progress-circle').innerHTML.textContent)
+    console.log(accuracy);
+    let progress = parseInt(document.querySelector('.card-header').textContent.trim().split(' ')[1]);
+    console.log(progress);
+    if (0<accuracy && accuracy<=30) {
+        progress.classList.add('p30');
+    }
+    else if(30<accuracy && accuracy<50)
+    {
+        progress.classList.add('p45');
+    }
+    else if(60<accuracy && accuracy<75)
+    {
+        progress.classList.add('p65')
+    }
+    else if(60<accuracy && accuracy<90)
+    {
+        progress.classList.add('p75');
+    }
+    else if(accuracy>75 && accuracy<90)
+    {
+        progress.classList.add('p90');
+    }
+
+</script>
+<script>
+    //Timer
+    let countdown = "{{ time }}"; //in seconds
+    console.log("{{ time }}");
+    const timerBlock = document.querySelector('#timer');
+    const x = setInterval(() => {
+        countdown = countdown - 1;
+        let hours = Math.floor(countdown / 3600);
+        let minutes = Math.floor(countdown % 3600 / 60);
+        let seconds = Math.floor(countdown % 3600 % 60);
+        if (countdown < 0) {
+            timerBlock.innerHTML = 'Expired';
+            clearInterval(x);
+        }
+        if (hours   < 10) {hours   = "0"+hours;}
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        timerBlock.innerHTML = `${hours}:${minutes}:${seconds}`;
+    }, 1000);
+</script>
+
+    </body>
+</html>

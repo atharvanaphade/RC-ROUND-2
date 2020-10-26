@@ -1,0 +1,87 @@
+body{
+    background-color: #002244;
+    font-family: sans-serif;
+    font-size: 2.2vh;
+    max-width:100%;
+    overflow-x: hidden;
+    margin: auto;
+}
+
+nav{
+    background-color: #010c16;
+}
+
+.nav-link
+{
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 1222px) {
+  .Time
+  {
+    margin-left: 0% !important;
+
+  }
+  .col-md-4
+    {
+      padding: 0px 0vh !important;
+    }
+    
+    .card{
+    background-color: #002244; 
+    color: #ffffff; 
+    border: 1px solid #000000; 
+    box-shadow: 2px 7px 4px 2px #000000;
+    margin-top: 3.5vh;
+    
+    }
+}
+
+@media only screen and (min-width: 1222px){
+    .card{
+        margin-top: 5vh;
+    }
+}
+@media only screen and (max-width: 1256px) {#adjust{padding: 3% !important;}}
+@media only screen and (max-width: 768px) {#adjust{padding: 6% !important;}}
+@media only screen and (max-width: 500px) {#adjust{padding: 10% !important;}}
+
+.card{
+    background-color: #002244; 
+    color: #ffffff; 
+    border: 1px solid #000000; 
+    box-shadow: 2px 7px 4px 2px #000000;
+    margin-top: 3.5vh;
+    
+    }
+
+.card-header{
+    background-color:#010c16;
+    font-size: 2.4vh;
+}
+
+.card-body{
+    padding: 2vh;
+}
+
+
+.btn{
+    color:#04d9ff;
+    background-color: #010c16;
+    font-size: 2vh;
+    border: 1px solid #04d9ff;
+    padding: 0.5vh;
+}
+
+.btn:hover{
+    color:white;
+    background-color:#0099cc;
+    font-size: 2vh;
+    border: 1px solid #0099cc;
+    padding: 0.5vh;
+}
+
+footer {
+    background-color: #010c16;
+    color: #fff;
+}

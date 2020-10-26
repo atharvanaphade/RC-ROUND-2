@@ -1,0 +1,3 @@
+data/users_code/user_3/question6/code1.cpp:1:1: error: ‘dasdasdsad’ does not name a type
+    1 | dasdasdsad
+      | ^~~~~~~~~~

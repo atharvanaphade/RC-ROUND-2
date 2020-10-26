@@ -1,0 +1,3 @@
+data/users_code/user_3/question3/code7.c:1:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ at end of input
+    1 | asdasdad
+      | ^~~~~~~~

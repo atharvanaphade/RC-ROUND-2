@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RC</title>
+
+
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      />
+    <link rel="stylesheet" type="text/css" href="{% static 'Users/css/instruction.css' %}" />
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background:
+      #010c16;">
+
+      <a class="navbar" href="{% url 'question-hub' %}">
+        <img src="{% static 'Users/imgs/rclogo.png' %}" height="55px" width="75px" alt="LOGO">
+      </a>
+      <div class="bar">
+        <a class="navbar-brand text-white" href="#"> INSTRUCTIONS</a>
+      </div>
+      <div class="navbar-collapse justify-content-end" id="navbarCollapse">
+        <span class="navbar-brand mb-0 text-light" style="margin-right:3vw;">Welcome,
+          Username !</span>
+        <div class="hide">
+          <img src="{% static 'Users/imgs/pisb.jpg' %}" height="50" alt="LOGO">
+        </div>
+      </div>
+
+    </nav>
+
+    <div class="row mx-auto h72" style="align-items: center;">
+      <div class="col-md-8">
+        <div class="card box mb-5 text-light">
+          <div class="card-body" style="font-size:18px;">
+            <h3 class="card-title text-center">Instructions</h3>
+            <ul>
+              <li>Possession the unpleasing simplicity her uncommonly.Off say
+                yet ample ten ought hence.Off say yet ample ten ought hence.</li>
+              <p> </p>
+              <li>Off say yet ample ten ought hence. Depending in newspaper an
+                september do existence strangers. Total great saw water had
+                mirth happy new. Projecting pianoforte no of partiality is on.
+                Nay besides joy society him totally six. </li>
+              <p> </p>
+              <li>Immediate him her resolving his favourite. Wished denote
+                abroad at branch at. </li>
+              <p> </p>
+              <li>Immediate him her resolving his favourite. Wished denote
+                abroad at branch at. </li>
+              <p> </p>
+              <li>Immediate him her resolving his favourite. Wished denote
+                abroad at branch at. </li>
+            </div>
+            <div class="card-footer text-center">
+              <form>
+                <input id="check-box" type="checkbox"> I have read all the instructions
+                carefully
+              </input>
+            </form>
+          </div>
+        </div>
+      </div>
+      <a id="anchor">
+        <div class="col-md-4" style="color: red; display: inline; margin-bottom: 5;"><span id="checkbox-error" style="margin-bottom: 5;"></span></div>
+        <div class="col-md-4">
+          <div class="card item-vertical-center" style="border:0px;">
+            <button id="proceed" type="button" class="btn text-white" style="height:3rem;"><strong>Proceed</strong></button>
+          </div>
+        </div>
+      </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#proceed").click(function(){
+          if($('#check-box').is(':checked')){
+            $("#anchor").attr("href", "{% url 'question-hub' %}");
+          }
+          else{
+            alert('Please tick the checkbox before proceeding.');
+          }
+        });
+      });
+    </script>
+  </body>
+  <footer class="text-center fixed-bottom">
+    <div class="conatiner-fluid">
+      <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
+    </div>
+  </footer>
+
+</html>

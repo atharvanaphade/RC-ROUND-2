@@ -1,0 +1,87 @@
+/* * {
+    border: 1px solid red;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*:focus {
+    outline: 0;
+}
+html,
+body {
+    height: 100vh;
+}
+.bg-main {
+    background-color: #002244;
+}
+
+nav {
+    background-color: #010c16;
+    /* background-color: #1f2124; */
+}
+
+.rclogo {
+    height: 55px;
+    width: 75px;
+    margin-right: 2vw;
+}
+
+.card {
+    background: #002244;
+    /* background: 1f212456; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    /* box-shadow: 20px 20px 40px black, -10px -10px 30px black; */
+    border-radius: 5px;
+}
+
+.button {
+    background-color: #010c16 !important;
+    color: #fff !important;
+    border: 1px solid rgb(207, 207, 207) !important;
+}
+
+.card-header {
+    background: #010c16 !important;
+}
+
+footer {
+    background-color: #010c16;
+    color: #fff;
+}
+
+textarea {
+    resize: none;
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    background-color: transparent;
+}
+
+select {
+    background-color: #010c16 !important;
+    color: #fff !important;
+}
+
+#score {
+    transition: none !important;
+}
+
+.mb-6 {
+    margin-bottom: 2vh;
+}
+
+.ml-6 {
+    margin-left: 26vw;
+}
+
+.pll-0 {
+    padding-left: 0;
+}
+
+.prr-0 {
+    padding-right: 0;
+}
+.form-file-button {
+    border-radius: 0.25rem;
+}
+.bg-black {
+    background-color: #010c16;
+}
