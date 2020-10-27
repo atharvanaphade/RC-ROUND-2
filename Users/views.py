@@ -106,11 +106,11 @@ def question_hub(request):
                     accuracy = 0
                 avg_accuracies.append(accuracy)
             time = remaining_time(request)
-            if time != 0:
+            #if time != 0:
             context = {'group': zip(questions, avg_accuracies), 'time': time}
             return render(request, 'Users/question_hub.html', context)
-            else:
-            return render(request, 'Users/final_result.html')
+            #else:
+            #return render(request, 'Users/final_result.html')
         else:
             return HttpResponse("Invalid request type.")
     messages.error(request, 'You must login to view this page.')
