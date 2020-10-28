@@ -1,86 +1,124 @@
-{%load static%}
+<!-- {%load static%} -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>LEADERBOARD</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'Users/css/lead.css'%}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<head>
+	<title>LEADERBOARD</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{ % static 'Users/css/lead.css' % }">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
+
 <body style="background-color:#002244;">
-	<header >
-		<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #010c16; ">
-			<a class="navbar-brand" href="{% url 'question-hub' %}">
-				<img src="{% static 'Users/imgs/RC logo4.jpg' %}" width="75" height="40" class="d-inline-block align-top" alt="RC logo">
+	<header>
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #010c16;height: 10vh ">
+			<a class="" href="{% url 'question-hub' %}">
+				<img src="{% static 'Users/imgs/RC_logo.jpeg' %}" width="75" height="55"
+					class="d-inline-block align-middle ml-3 mr-3" alt="RC logo">
 			</a>
 
-			<a class="navbar-brand justify-content-center " style="font-size: 23px; color: white;margin-top:5px" >Leaderboard</a>
+			<a class="navbar-brand justify-content-center "
+				style="font-size: 23px; color: white;margin-top:5px">Leaderboard</a>
 
-<!--			<a class="Time mt-1" style=" padding-left : 27%; color: white; font-size: 18px;" >Timer - 00:00</a>-->
+			<!-- <a class="Time mt-1" style=" padding-left : 27%; color: white; font-size: 18px;">Timer - 00:00</a>
 
 			<div class="Time mt-1 timer" style=" padding-left : 27%; color: white; font-size: 18px;">
+			<a href="#" class="btn btn-light d-inline-block ml-6">TIMER</a> -->
+
+
+
+			<!-- </div> -->
+			<!-- TIMER -->
+			<div class="timer">
 				<!-- <a href="#" class="btn btn-light d-inline-block ml-6">TIMER</a> -->
-				<div
-					class="ml-6"
-					id="timer"
-					style="color: #ffffff; width: 15vh"
-				>
+				<div class="ml-6" id="timer" style="color: #ffffff; width: 15vh">
 				</div>
 			</div>
 
-		</div>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse " id="navbarSupportedContent">
 
-			  <ul class="navbar-nav ml-auto" >
-				<li class="nav-item mt-1 ">
-				  <a class="nav-link" href="{% url 'question-hub' %}">Question Hub</a>
-				</li>
-				<li class="nav-item mt-1 ">
-					<a class="nav-link" href="{% url 'submissions-page' %}">Submissions</a>
-				</li>
-				<li class="nav-item mt-1">
-					<a class="nav-link" href="{% url 'logout' %}">Logout</a>
-				</li>
-				<li class="nav-item ">
-					<img src="{% static 'Users/imgs/pisb.jpg' %}" width="140" height="50"  alt="PISB logo">
-				</li>
-
-			  </ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item mt-1 ">
+						<a class="nav-link" href="{% url 'question-hub' %}">Question Hub</a>
+					</li>
+					<li class="nav-item mt-1 ">
+						<a class="nav-link" href="{% url 'submissions-page' %}">Submissions</a>
+					</li>
+					<li class="nav-item mt-1">
+						<a class="nav-link" href="{% url 'logout' %}" data-target="#staticBackdrop"
+							data-toggle="modal">Logout</a>
+					</li>
+				</ul>
 			</div>
-		  </nav>
+			<img src="{% static 'Users/imgs/pisb.jpg' %}" class="pisb-logo" width="150" height="50" alt="PISB logo">
+			<!-- Modal -->
+			<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">
+								Logout
+							</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							Do you really want to Log out?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-success">
+								Logout
+							</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">
+								Cancel
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
 	</header>
 	<main>
 		<div id="adjust" style="padding:2%;"></div>
-		<div class="container-fluid" >
-			<div class="row justify-content-center "style="padding-top:1%">
-			    <div class="col-sm-3 col-md-3 " style="height:auto;">
+		<div class="container-fluid">
+			<div class="row justify-content-center " style="padding-top:1%">
+				<div class="col-sm-3 col-md-3 " style="height:auto;">
 
-					<div class="card" style="border: black solid thin ;background-color: #002244; border-radius: 7px;height:100%;margin-right: -30px; margin-top: 1.5em;">
-						<div class="card-body align-items-center" >
+					<div class="card"
+						style="border: black solid thin ;background-color: #002244; border-radius: 7px;height:100%;margin-right: -30px; margin-top: 1.5em;">
+						<div class="card-body align-items-center">
 							<div class="content align-items-center">
-								<div class="avatar-circle" >
+								<div class="avatar-circle">
 									<span class="initials">RC</span>
 								</div>
-								<div><p style="font-size: medium;font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;padding:25px;">{{ current_user }}</p></div>
+								<div>
+									<p
+										style="font-size: medium;font-family: 'Lucida Sans Unicode','Lucida Grande',sans-serif;padding:25px;">
+										{{ current_user }}</p>
+								</div>
 
 								<div>
-								<div class="Rank" >
-									<div class="h4 font-weight-bold mb-0">Rank</div><span class=" text-gray">{{ current_user_rank }}</span>
-								</div>
+									<div class="Rank">
+										<div class="h4 font-weight-bold mb-0">Rank</div><span
+											class=" text-gray">{{ current_user_rank }}</span>
+									</div>
 
-								<div class="Score">
-									<div class="h4 font-weight-bold mb-0">Score</div><span class=" text-gray">{{ current_user_score }}</span>
-								</div>
+									<div class="Score">
+										<div class="h4 font-weight-bold mb-0">Score</div><span
+											class=" text-gray">{{ current_user_score }}</span>
+									</div>
 								</div>
 
 								<div class="circle" style="padding-bottom:1em ; padding-top: 1em;">
@@ -98,7 +136,8 @@
 
 										{% else %}
 
-										<div class="progress-circle over50 p{{ user_accuracy|floatformat:'0' }} mx-auto">
+										<div
+											class="progress-circle over50 p{{ user_accuracy|floatformat:'0' }} mx-auto">
 											<span><b>{{ user_accuracy }}%</b></span>
 											<div class="left-half-clipper">
 												<div class="first50-bar"></div>
@@ -115,87 +154,96 @@
 					</div>
 				</div>
 				<br>
-				<div class="col-sm-8 col-md-8" >
+				<div class="col-sm-8 col-md-8">
 					<table class="table table-fit table-responsive-sm table-responsive-md " style="margin-top: 1em;">
 						<thead>
 							<tr style="color:white; text-align-last: center;">
 								<th>RANK</th>
 								<th>USERNAME</th>
 								{% for question in questions %}
-                                    <th id="question_{{ question.id }}">Q{{ question.id }}</th>
-                                {% endfor %}
+								<th id="question_{{ question.id }}">Q{{ question.id }}</th>
+								{% endfor %}
 								<th>TOTAL SCORE</th>
 							</tr>
 						</thead>
 						<tbody>
-                            {% for entry in page_obj %}
-                                <tr class="rank">
-                                    <td>{{ forloop.counter0|add:page_obj.start_index }}</td>
-                                    <td>{{ entry.0 }}</td>
-                                    {% for x in entry.1 %}
-                                        <td id="question">{{ x }}</td>
-                                    {% endfor %}
-                                </tr>
-                            {% endfor %}
+							{% for entry in page_obj %}
+							<tr class="rank">
+								<td>{{ forloop.counter0|add:page_obj.start_index }}</td>
+								<td>{{ entry.0 }}</td>
+								{% for x in entry.1 %}
+								<td id="question">{{ x }}</td>
+								{% endfor %}
+							</tr>
+							{% endfor %}
 						</tbody>
 					</table>
 
 
 				</div>
 
-				<nav aria-label="Page navigation example" style = "text-align: center;  font-size: medium; margin-top: 1em;">
-					<ul class="pagination justify-content-center" >
+				<nav aria-label="Page navigation example"
+					style="text-align: center;  font-size: medium; margin-top: 1em;">
+					<ul class="pagination justify-content-center">
 
-                        {% if page_obj.has_previous %}
+						{% if page_obj.has_previous %}
 						<li class="page-item">
-						<a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+							<a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+								tabindex="-1">Previous</a>
 						</li>
-                        {% endif %}
+						{% endif %}
 
-                        {% for i in page_range %}
+						{% for i in page_range %}
 						<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                        {% endfor %}
+						{% endfor %}
 
-                        {% if page_obj.has_next %}
+						{% if page_obj.has_next %}
 						<li class="page-item">
-						<a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+							<a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
 						</li>
-                        {% endif %}
+						{% endif %}
 					</ul>
 				</nav>
-			</div >
-		  </div>
+			</div>
+		</div>
 
 	</main>
 
 	<br>
 	<div id="adjust" style="padding: 3%;"></div>
-    <footer class="text-center">
-        <div class="conatiner-fluid">
-            <div class="footer-text pt-3 pb-3 " style="font-size: 18px;">PISB <span>&copy</span></div>
-        </div>
-    </footer>
+	<footer class="text-center fixed-bottom">
+		<div class="container-fluid">
+			<div class="footer-text pt-3 pb-4 ">PISB <span>&copy</span></div>
+		</div>
+	</footer>
 
-<script>
-    //Timer
-    let countdown = "{{ time }}"; //in seconds
-    console.log("{{ time }}");
-    const timerBlock = document.querySelector('#timer');
-    const x = setInterval(() => {
-        countdown = countdown - 1;
-        let hours = Math.floor(countdown / 3600);
-        let minutes = Math.floor(countdown % 3600 / 60);
-        let seconds = Math.floor(countdown % 3600 % 60);
-        if (countdown < 0) {
-            timerBlock.innerHTML = 'Expired';
-            clearInterval(x);
-        }
-        if (hours   < 10) {hours   = "0"+hours;}
-        if (minutes < 10) {minutes = "0"+minutes;}
-        if (seconds < 10) {seconds = "0"+seconds;}
-        timerBlock.innerHTML = `${hours}:${minutes}:${seconds}`;
-    }, 1000);
-</script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+	<script>
+		//Timer
+		let countdown = "{{ time }}"; //in seconds
+		console.log("{{ time }}");
+		const timerBlock = document.querySelector('#timer');
+		const x = setInterval(() => {
+			countdown = countdown - 1;
+			let hours = Math.floor(countdown / 3600);
+			let minutes = Math.floor(countdown % 3600 / 60);
+			let seconds = Math.floor(countdown % 3600 % 60);
+			if (countdown < 0) {
+				timerBlock.innerHTML = 'Expired';
+				clearInterval(x);
+			}
+			if (hours < 10) { hours = "0" + hours; }
+			if (minutes < 10) { minutes = "0" + minutes; }
+			if (seconds < 10) { seconds = "0" + seconds; }
+			timerBlock.innerHTML = `${hours}:${minutes}:${seconds}`;
+		}, 1000);
+	</script>
 
 </body>
+
 </html>
