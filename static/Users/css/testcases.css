@@ -11,6 +11,7 @@ body {
 
 @media (min-width: 1026px) {
   .col-xl-5 {
+    position: -webkit-sticky;
     position: sticky;
     top: 4rem;
     z-index: 1000;
@@ -19,6 +20,7 @@ body {
 }
 @media (min-width: 100) {
   .col-xl-2 {
+    position: -webkit-sticky;
     position: sticky;
     top: 4rem;
     height: calc(100vh-7rem);
@@ -34,11 +36,12 @@ textarea {
   color: white;
   padding: 15px;
   height: 55vh;
-  border:none;
+  border: none;
   outline: none;
 }
 
 .table {
+  -webkit-text-decoration-color: rgb(0, 0, 10);
   text-decoration-color: rgb(0, 0, 10);
   border-collapse: separate;
   border-block-style: 3px black;
@@ -95,13 +98,13 @@ textarea {
   font-family: Arial;
   font-size: 20px;
 }
-button{
-  width:120px;
+button {
+  width: 120px;
 }
 
-@media(min-width:768px){
-  .card{
-    width:80%;
+@media (min-width: 768px) {
+  .card {
+    width: 80%;
   }
 }
 
@@ -117,10 +120,9 @@ footer {
   width: 100%;
 }
 
-@media(max-width:425px){
-  footer{
+@media (max-width: 425px) {
+  footer {
     position: fixed;
-    
   }
 }
 nav {
@@ -154,4 +156,31 @@ nav {
 .pass {
   color: green;
   margin-left: 5%;
+}
+
+@media (max-width: 768px) {
+  .fixed-position {
+    position: relative;
+  }
+  .pisb-logo {
+    display: none;
+  }
+}
+.modal {
+  z-index: 11111111;
+}
+
+.modal-content {
+  background-color: #1c1c1f;
+  color: #ffffff;
+}
+
+.modal-header,
+.modal-footer {
+  border: 0;
+}
+
+.close,
+.close:hover {
+  color: #ffffff;
 }
