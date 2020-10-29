@@ -22,7 +22,7 @@
 </head>
 
 <body style="background: #002244; ">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="
+  <!--  <nav class="navbar navbar-expand-lg navbar-dark" style="
             background-color: #010c16;
             font-family: sans-serif;
                 height:10vh ;
@@ -49,7 +49,46 @@
                     class="d-inline-block align-top pisb-logo" alt="pisb logo" />
             </a>
         </div>
-    </nav>
+    </nav>-->
+    <nav  
+    id="main-nav"
+    class="navbar navbar-dark navbar-expand-xl z-index"
+    style="background-color: #010c16;
+    height: 10vh;
+    "
+>
+    <div class="container-fluid">
+        
+        <a href="{% url 'login' %}" class="navbar-brand ml-1" class="eleme">
+            <img
+            src="{% static 'Users/imgs/rc.jpeg' %}"
+                alt="RC LOGO"
+                class="rclogo"
+                style="height: 55px;
+                width: 75px;
+                margin-right: 2vw;"
+            />
+           
+            <h4 class="d-inline align-middle" 
+            style="font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana'; ">
+            Results</h4>
+            
+        </a>
+        <div><img
+            src="{% static 'Users/imgs/pisb.jpg' %}"
+            class="pisblogo"
+            class="pisblogo2"
+            alt="PISB logo"
+            height="50px"
+            width="150px"
+            style="padding-left: 2px;"
+            
+        /></div>
+       
+       
+    </div>
+</nav>
+
 
 
     <div class="container-fluid" style="height: 87.5vh">
@@ -79,7 +118,9 @@
                                         margin-top: 15px;
                                     ">
                             <div style="color: rgb(255, 255, 255);padding-top: 1.5vh;">
-                                <h4 style="font-family:sans-serif;font-size: 30px; ">
+                                <h4 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';           
+                         font-size: 30px; ">
                                     RANK {{ forloop.counter }}
                                 </h4>
                             </div>
@@ -98,8 +139,7 @@
                                             ">
                                     <h5 style="
                                                     color: #ddd;
-                                                    font-family:sans-serif;
-                                                    font-size: 20px;
+                                                    font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                                    font-size: 20px;
                                                 ">
                                         {{ key }}
                                     </h5>
@@ -112,8 +152,7 @@
                                             ">
                                     <h5 style="
                                                     color: #ddd;
-                                                    font-family:sans-serif;
-                                                    font-size: 20px;
+                                                    font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                                    font-size: 20px;
                                                 ">
                                         {{ value }}
                                     </h5>
@@ -157,8 +196,10 @@
                                     margin-top: 6px;
                                     position: absolute;
                                 ">
-                            <div style="font-size: 8.8vh; margin-bottom: 2vh">
-                                RC
+                            <div style="font-size: 75px; margin-bottom: 2vh;
+                            font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';
+                            ">
+                                R
                             </div>
                         </div>
                     </div>
@@ -170,7 +211,9 @@
                                 color: #ddd;
                                 
                             ">
-                        <h5 style="font-family:sans-serif;font-size: 20px;">
+                        <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';
+                        font-size: 20px;">
                             {{ username }}</h5>
                     </div>
                     <div class="box">
@@ -191,8 +234,8 @@
                                             color: #ddd;  
                                             padding-left: 1.5vh;
                                         ">
-                                    <h5 style="font-family:sans-serif;
-                                          font-size: 20px;
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                          font-size: 20px;
                                          ">
                                         RANK</h5>
                                 </div>
@@ -208,8 +251,8 @@
                                             color: #ddd;
                                             
                                         ">
-                                    <h5 style="font-family:sans-serif;
-                                        font-size: 20px;
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                        font-size: 20px;
                                         padding-left: 3vh;">
                                         {{ rank }}</h5>
                                 </div>
@@ -235,8 +278,8 @@
                                             padding-left: 1.5vh;
                                             
                                         ">
-                                    <h5 style="font-family:sans-serif; 
-                                         font-size: 20px;">
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                         font-size: 20px;">
                                         SCORE</h5>
                                 </div>
                             </div>
@@ -250,8 +293,8 @@
                                 <div style="
                                             color: #ddd; 
                                         ">
-                                    <h5 style="font-family:sans-serif; 
-                                       font-size: 20px;
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                       font-size: 20px;
                                        padding-left: 3vh;">
 
                                         {{ score }}</h5>
@@ -277,8 +320,8 @@
                                             color: #ddd;
                                             padding-left: 1.5vh;
                                         ">
-                                    <h5 style="font-family:sans-serif; 
-                                        font-size: 20px;">
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                        font-size: 20px;">
                                         QUESTIONS ATTEMPTED</h5>
                                 </div>
                             </div>
@@ -292,8 +335,8 @@
                                 <div style="
                                             color: #ddd;
                                         ">
-                                    <h5 style="font-family:sans-serif; 
-                                        font-size: 20px;
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                        font-size: 20px;
                                         padding-left: 3vh;">
                                         {{ questions_attempted }}</h5>
                                 </div>
@@ -318,8 +361,8 @@
                                             color: #ddd;
                                             padding-left: 1.5vh;
                                         ">
-                                    <h5 style="font-family:sans-serif;
-                                        font-size: 20px;">
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                        font-size: 20px;">
                                         QUESTIONS SOLVED</h5>
                                 </div>
                             </div>
@@ -333,8 +376,8 @@
                                 <div style="
                                             color: #ddd;
                                         ">
-                                    <h5 style="font-family:sans-serif; 
-                                        font-size: 20px;
+                                    <h5 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                        font-size: 20px;
                                         padding-left: 3vh;">
                                         {{ questions_solved }}</h5>
                                 </div>
@@ -367,7 +410,8 @@
                                             color: #ddd;
                                             padding-top: 1.5vh;
                                         ">
-                                <h4 style="font-family:sans-serif; font-size: 30px;">
+                                <h4 style="
+font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                font-size: 30px;">
                                     RANK {{ forloop.counter }}</h4>
                             </div>
                         </div>
@@ -385,8 +429,7 @@
                                             ">
                                     <h5 style="
                                                     color: #ddd;
-                                                    font-family:sans-serif;
-                                                    font-size: 20px;
+                                                    font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                                    font-size: 20px;
                                                 ">
                                         {{ key }}
                                     </h5>
@@ -399,8 +442,7 @@
                                             ">
                                     <h5 style="
                                                     color: #ddd;
-                                                    font-family:sans-serif;
-                                                    font-size: 20px;
+                                                    font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';                                                    font-size: 20px;
                                                 ">
                                         {{ value }}
                                     </h5>
@@ -416,37 +458,35 @@
         </div>
     </div>
     <style>
-        @media screen and (min-width: 480px) {
-            .pagename {
-                margin-left: 40%;
-            }
+            
 
-            .pisblogo {
-                margin-left: 38%;
+        @media only screen and (max-width: 1050px) {
+            .pisblogo
+            {
+                width: 150px;
+                height: 40px;
+                vertical-align: top;
             }
-        }
+            }
+            @media only screen and (max-width: 390px) {
+            .pisblogo
+            {
+                width: 100px;
+                height: 45px;
+                vertical-align: top;
+            }
+            
+            }
+     
+        
+
+        
+       
     </style>
-    <style>
-        @media only screen and (max-width: 768px) {
-            #adjust {
-                padding: 8% !important;
-            }
-            .pisb-logo{
-                display:none;
-            }
-        }
-
-        @media only screen and (max-width: 500px) {
-            #adjust {
-                padding: 12% !important;
-            }
-        }
-
-        @media only screen and (max-width: 1222px) {
-            #adjust {
-                padding: 5% !important;
-            }
-        }
+     <style>
+        @media only screen and (max-width: 768px) {#adjust{padding: 8% !important;}}
+@media only screen and (max-width: 500px) {#adjust{padding: 12% !important;}}
+@media only screen and (max-width: 1222px) {#adjust{padding: 5% !important;}}
     </style>
     <!-- <footer class="text-center" style="background-color: #010c16; color: #fff;
     position: fixed;
@@ -460,11 +500,22 @@
             <div class="footer-text pt-3 pb-4" style="font-size: 2.5vh;">PISB <span>&copy</span></div>
         </div>
     </footer> -->
-    <footer class="text-center fixed-bottom" style="background-color: #010c16; color: #fff;>
-        <div class=" container-fluid">
-        <div class="footer-text pt-3 pb-4">PISB <span>&copy</span></div>
-        </div>
-    </footer>
+    <footer class="text-center" style="background-color: #010c16;
+        color: #fff;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        
+        z-index: 500;">
+          <div class="conatiner-fluid">
+              <div class="footer-text pt-3 pb-4 " style="font-size: 18px;
+              font-family: 'sans-serif','Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode','Geneva','Verdana';">
+              PISB 
+              <span>&copy</span></div>
+          </div>
+      </footer>
 </body>
 
 </html>
