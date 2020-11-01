@@ -138,18 +138,22 @@
                             <div class="modal-body">
                                 Do you really want to Log out?
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">
-                                    Logout
-                                </button>
-                                <button
-                                    type="button"
-                                    class="btn btn-danger"
-                                    data-dismiss="modal"
-                                >
-                                    Cancel
-                                </button>
-                            </div>
+
+                                <div class="modal-footer">
+                                    <a href="{% url 'logout' %}">
+                                        <button type="button" class="btn btn-primary">
+                                            Logout
+                                        </button>
+                                    </a>
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger"
+                                        data-dismiss="modal"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -229,7 +233,7 @@
                                         >
                                             {% if user_accuracy < 50 %}
                                             <div
-                                                class="progress-circle over50 p{{ user_accuracy|floatformat:'0' }} mx-auto"
+                                                class="progress-circle p{{ user_accuracy|floatformat:'0' }} mx-auto"
                                             >
                                                 <span
                                                     ><b
@@ -298,9 +302,9 @@
                                 {% for entry in page_obj %}
                                 <tr class="rank">
                                     <td>
-                                        {{
-                                        forloop.counter0|add:page_obj.start_index
-                                        }}
+                                        
+                                    {{forloop.counter0|add:page_obj.start_index}}
+                                        
                                     </td>
                                     <td>{{ entry.0 }}</td>
                                     {% for x in entry.1 %}
@@ -331,13 +335,15 @@
                                         >Previous</a
                                     >
                                 </li>
-                                {% endif %} {% for i in page_range %}
+                                {% endif %} 
+                                {% for i in page_range %}
                                 <li class="page-item">
                                     <a class="page-link" href="?page={{ i }}"
                                         >{{ i }}</a
                                     >
                                 </li>
-                                {% endfor %} {% if page_obj.has_next %}
+                                {% endfor %} 
+                                {% if page_obj.has_next %}
                                 <li class="page-item">
                                     <a
                                         class="page-link"

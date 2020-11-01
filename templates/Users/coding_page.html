@@ -151,18 +151,22 @@
                         <div class="modal-body">
                             Do you really want to Log out?
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
-                                Logout
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-danger"
-                                data-dismiss="modal"
-                            >
-                                Cancel
-                            </button>
-                        </div>
+                        
+                            <div class="modal-footer">
+                                <a href="{% url 'logout' %}">
+                                    <button type="button" class="btn btn-primary">
+                                        Logout
+                                    </button>
+                                </a>
+                                <button
+                                    type="button"
+                                    class="btn btn-danger"
+                                    data-dismiss="modal"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        
                     </div>
                 </div>
             </div>
@@ -458,7 +462,7 @@
                         let user_code = editor.getValue();
                         if (user_code != "") {
                             $.ajax({
-                                url: '{% url 'coding- page' question_id %}',
+                                url: '{% url 'coding-page' question_id %}',
                                 type: "POST",
                                 data: {
                                 csrfmiddlewaretoken: '{{csrf_token}}',
@@ -486,7 +490,7 @@
                     console.log(input);
                     if (input != "") {
                         $.ajax({
-                            url: '{% url 'get- output' %}',
+                            url: '{% url 'get-output' %}',
                             type: "POST",
                             data: {
                             csrfmiddlewaretoken: '{{csrf_token}}',

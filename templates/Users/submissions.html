@@ -555,9 +555,11 @@
                         Do you really want to Log out?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success">
-                            Logout
-                        </button>
+                        <a href="{% url 'logout' %}">
+                            <button type="button" class="btn btn-success">
+                                Logout
+                            </button>
+                        </a>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">
                             Cancel
                         </button>

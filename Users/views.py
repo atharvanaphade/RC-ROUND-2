@@ -11,6 +11,9 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, reverse
 
+#from django.shortcuts import render_to_response
+#from django.template import RequestContext
+
 from Sandbox.views import user_ka_aukaat_check_kar
 from .models import Profile, Question, Submissions
 
@@ -374,7 +377,7 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             request.session.set_expiry(remaining_time(request))
-            return render(request, 'Users/Instructions.html')
+            return render(request, 'Users/Instructions.html', context = {'username': request.user.username})
         else:
             messages.error(request, 'Invalid credentials.')
             return redirect('login')
@@ -470,3 +473,7 @@ def result_page(request):
             return render(request, 'Users/result rc.html', context)
     else:
         return HttpResponseRedirect(reverse("login"))
+
+
+def handler404(request):
+    return HttpResponseRedirect(reverse("question-hub"))
