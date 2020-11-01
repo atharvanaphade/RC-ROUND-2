@@ -20,17 +20,20 @@
 
 <body style="background-color: #002244">
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #010c16;">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #010c16; height: 10vh">
         <a class="navbar-brand" href="{% url 'question-hub' %}">
             <img src="{% static 'Users/imgs/rc.jpeg' %}" width="75" height="55" class="d-inline-block align-top mr-3"
                 alt="RC logo">
         </a>
 
-        <a class="navbar-brand " style="font-size: 23px; color: white; margin-right: auto;">Question Hub</a>
-        <!--Timer-->
-        <span class="clock" style=" margin-left : 24vw;"></span>
-        
-        
+        <a class="navbar-brand " style="font-size: 23px; color: white;">Question Hub</a>
+        <div class="Time mt-1 timer" style=" margin-left : 30%; color: white; font-size: 18px;">
+            <!-- <a href="#" class="btn btn-light d-inline-block ml-6">TIMER</a> -->
+            <div class="ml-6" id="timer" style="color: #ffffff; width: 15vh">
+            </div>
+        </div>
+        <!--        <a class="Time mt-1 timer" style=" margin-left : 30%; color: white; font-size: 18px;" >Timer - 00:00</a>-->
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,16 +48,13 @@
                 <li class="nav-item mt-1 ">
                     <a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
                 </li>
-                <li class="nav-item mt-1 mr-4">
+                <li class="nav-item mt-1">
                     <a class="nav-link" href="{% url 'logout' %}" data-target="#staticBackdrop"
                         data-toggle="modal">Logout</a>
                 </li>
-                <li class="nav-item">
-                    <img src="{% static 'Users/imgs/pisb.jpg' %}"class="pisb-logo" width="150" height="50" alt="PISB logo">
-                </li>
             </ul>
         </div>
-        
+        <img src="{% static 'Users/imgs/pisb.jpg' %}"class="pisb-logo" width="150" height="50" alt="PISB logo">
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="modal-footer">
                         <a href="{% url 'logout' %}">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-success">
                                 Logout
                             </button>
                         </a>
