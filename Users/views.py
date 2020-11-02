@@ -32,7 +32,7 @@ NO_OF_QUESTIONS = 6
 NO_OF_TEST_CASES = 6
 
 def bad_request(request, exception):
-    return redirect('login')
+    return redirect('question-hub')
 
 
 def set_timer(request):
@@ -145,19 +145,22 @@ def submission_page(request):
     messages.error(request, 'You must login to view this page.')
     return HttpResponseRedirect(reverse("login"))
 
+def view_submission_code():
+    submission = Submissions.objects.get(id=submission_id)
+    code = json.dumps(submission.code)
 
 def view_submission(request, submission_id):
     if request.user.is_authenticated:
         if request.method == 'GET':
             user_profile = Profile.objects.get(user=request.user)
             submission = Submissions.objects.get(id=submission_id)
-            code = json.dumps(submission.code)
+            code = submission.code
             question = Question.objects.get(pk=submission.quesID.pk)
             user = request.user
             timer = remaining_time(request)
             context = {'question': question, 'user': user, 'time': timer,
                        'total_score': user_profile.totalScore, 'question_id': submission.quesID.pk,
-                       'code': code}
+                       'code': json.dumps(code)}
             return render(request, 'Users/coding_page.html', context)
         else:
             return HttpResponse("Invalid request type.")
@@ -389,6 +392,8 @@ def login(request):
         # messages.error(request, 'Time is up. You cannot login now')
         # return render(request, 'Users/login.html')
     elif request.method == 'GET':
+        if request.user.is_authenticated:
+            return redirect('question-hub')
         return render(request, 'Users/login.html')
     return HttpResponse("Invalid request type.")
 

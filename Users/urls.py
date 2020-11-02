@@ -19,7 +19,7 @@ from django.views.decorators.cache import never_cache
 
 urlpatterns = [
     path('', views.register, name="register"),
-    path('login/', views.login, name="login"),
+    path('login/', never_cache(views.login), name="login"),
     path('timer/', views.set_timer, name='timer'),
     path('question-hub/', never_cache(views.question_hub), name='question-hub'),
     path('question/<int:pk>', never_cache(views.coding_page), name='coding-page'),
