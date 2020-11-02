@@ -66,8 +66,7 @@ footer {
     }
     .btn {
         border: 0px;
-        width: 90%;
-        margin-left: 4vw;
+        margin-left: 10vw;
         padding: 0px;
         position: absolute;
         z-index: 1000;
