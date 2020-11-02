@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404, handler400, handler403, handler500
+from Users.views import bad_request
 
 #ive removed thee paths also, as ryt now we dot need to configure all paths.....later on itll be a tedious job if we do it from now for every page!!
+
+#handler400 = 'Users.views.bad_request'
+#handler403 = 'Users.views.bad_request'
+handler404 = 'Users.views.bad_request'
+#handler500 = 'Users.views.bad_request'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Users.urls')),

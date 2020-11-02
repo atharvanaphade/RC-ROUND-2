@@ -16,6 +16,8 @@ from django.shortcuts import render, redirect, reverse
 
 from Sandbox.views import user_ka_aukaat_check_kar
 from .models import Profile, Question, Submissions
+from django.shortcuts import redirect
+from django.template import RequestContext
 
 start_time = 0
 end_time = 0
@@ -28,6 +30,9 @@ STANDARD = 'data/standard/'
 
 NO_OF_QUESTIONS = 6
 NO_OF_TEST_CASES = 6
+
+def bad_request(request, exception):
+    return redirect('login')
 
 
 def set_timer(request):

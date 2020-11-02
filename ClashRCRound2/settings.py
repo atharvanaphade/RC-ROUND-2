@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'y3xeonu4*1=aj)svrzs!tsxr$^+vn+nim!g(h-v--2q8woezay'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Users.apps.UsersConfig',
     'Sandbox.apps.SandboxConfig',
-    'rest_framework',
+    #'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
