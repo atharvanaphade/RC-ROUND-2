@@ -3,7 +3,9 @@
 <html lang="en">
     <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <!-- Bootstrap CSS -->
@@ -421,29 +423,37 @@
         </script>
 
         <script type="text/javascript">
-            console.log('{{ code }}');
+            /*console.log('{{ code }}');
 
-            function escape_html(str) {
-                if (str === null || str === '') return false;
-                else str = str.toString();
+            var entityMap = {
+              '&amp;': '&',
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&#39;',
+              '/': '&#x2F;',
+              '`': '&#x60;',
+              '=': '&#x3D;'
+            };
 
-                var map = {
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#039;',
-                };
-
-                return str.replace(/[&<>"']/g, function (m) {
-                    return map[m];
-                });
-            }
+            function escapeHtml (string) {
+              return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+                return entityMap[s];
+              });
+            }*/
 
             if ('{{ code }}' != '') {
-                var json_code = '{{ code }}';
-                console.log(typeof json_code);
-                var code = escape_html(json_code);
+                var json_code = `{{ code }}`;
+                //console.log(typeof json_code);
+                var code = json_code.replace(/&amp;/g, "&");
+                code = code.replace(/&lt;/g, "<");
+                code = code.replace(/&gt;/g, ">");
+                code = code.replace(/&quot;/g, '"');
+                code = code.replace(/&#39;/g, "'");
+                code = code.replace(/&#x2F;/g, "/");
+                code = code.replace(/&#x60;/g, "`");
+                code = code.replace(/&#x3D;/g, "=");
+                code = code.slice(1, -1);
                 console.log(code);
                 editor.setValue(code);
             }

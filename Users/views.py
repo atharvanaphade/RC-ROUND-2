@@ -154,13 +154,14 @@ def view_submission(request, submission_id):
         if request.method == 'GET':
             user_profile = Profile.objects.get(user=request.user)
             submission = Submissions.objects.get(id=submission_id)
-            code = submission.code
+            code = json.dumps(submission.code, ensure_ascii=False)
+            print("THIS IS CODE: " + code)
             question = Question.objects.get(pk=submission.quesID.pk)
             user = request.user
             timer = remaining_time(request)
             context = {'question': question, 'user': user, 'time': timer,
                        'total_score': user_profile.totalScore, 'question_id': submission.quesID.pk,
-                       'code': json.dumps(code)}
+                       'code': code}
             return render(request, 'Users/coding_page.html', context)
         else:
             return HttpResponse("Invalid request type.")
